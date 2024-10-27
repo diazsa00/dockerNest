@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./project-name/dist:/project-name/dist  # Monta solo 'dist' para ver los cambios
+      - ./project-name/src:/project-name/src    # Opcional, para sincronizar código fuente
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+    command: npm run start:prod
